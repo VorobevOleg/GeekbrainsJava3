@@ -14,5 +14,5 @@ public class Arr <T> {
         arr[second] = temp;
     }
 
-    
+
 }
