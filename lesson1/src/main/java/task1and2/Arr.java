@@ -1,4 +1,4 @@
-package ru.gb;
+package task1and2;
 
 public class Arr <T> {
     private T[] arr;

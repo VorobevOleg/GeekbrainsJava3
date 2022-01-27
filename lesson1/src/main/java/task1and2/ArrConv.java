@@ -1,4 +1,4 @@
-package ru.gb;
+package task1and2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
