@@ -23,7 +23,7 @@ public class Main {
 
         System.out.println("Вес нетто в коробках 1 и 3 равный: " + boxApple1.compare(boxOrange1));
 
-        System.out.println("Пересыпаем из 1 коробки во 2: " + boxApple1.pourInBox(boxApple2));
+        boxApple1.pourInBox(boxApple2);
 
         System.out.println("Вес нетто во 2 коробке после пересыпания в нее из 1: " + boxApple2.getWeight());
         System.out.println("Вес нетто в 1 коробке после пересыпания из нее во 2: " + boxApple1.getWeight());

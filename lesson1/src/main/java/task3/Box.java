@@ -26,15 +26,9 @@ public class Box <T extends Fruit>{
         fruitsInBox.add(fruit);
     }
 
-    public boolean pourInBox (Box<T> boxIn) {
-       if (this.getClass() != boxIn.getClass()) {
-           return false;
-        }
-
+    public void pourInBox (Box<T> boxIn) {
         boxIn.fruitsInBox.addAll(this.fruitsInBox);
         this.fruitsInBox.clear();
-
-        return true;
     }
 
 }
