@@ -1,7 +1,5 @@
 package server;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -22,7 +20,7 @@ public class Server {
 
     public Server() {
         clients = new CopyOnWriteArrayList<>();
-        authService = new SimpleAuthService();
+        authService = new DbAuthService();
 
         try {
             server = new ServerSocket(PORT);

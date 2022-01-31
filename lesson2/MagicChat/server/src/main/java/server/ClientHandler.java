@@ -7,6 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.sql.SQLException;
 
 public class ClientHandler {
     private Server server;
@@ -99,6 +100,8 @@ public class ClientHandler {
                 }
                 catch (IOException e) {
                     e.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
                 } finally {
                     System.out.println("Client disconnect!");
                     server.unsubscribe(this);
