@@ -20,6 +20,7 @@ public class DbAuthService implements AuthService {
     private static Statement stmt;
     private static PreparedStatement psInsert;
     private static PreparedStatement psGetNickname;
+    private static PreparedStatement psChangeNick;
 
     public DbAuthService() {
         try {
@@ -72,6 +73,10 @@ public class DbAuthService implements AuthService {
         psInsert = connection.prepareStatement("INSERT INTO users (login, password, nickname) VALUES ( ? , ? , ?);");
     }
 
+    public static void prepareChangeNickname() throws SQLException {
+        psChangeNick = connection.prepareStatement("UPDATE users SET nickname = ? WHERE nickname = ? AND password = ?;");
+    }
+
     public static void prepareGetNicknameByLoginAndPassword() throws SQLException {
         psGetNickname = connection.prepareStatement("SELECT nickname FROM users WHERE login = ? and password = ?;");
     }
@@ -105,6 +110,25 @@ public class DbAuthService implements AuthService {
             psInsert.setString(3, nickname);
             psInsert.executeUpdate();
             return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            disconnect();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean changeNickname(String oldNickname, String newNickname, String password) {
+        try {
+            connect();
+            prepareChangeNickname();
+            psChangeNick.setString(1, newNickname);
+            psChangeNick.setString(2, oldNickname);
+            psChangeNick.setString(3, password);
+            if (psChangeNick.executeUpdate() > 0) {
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

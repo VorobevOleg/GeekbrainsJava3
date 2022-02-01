@@ -55,6 +55,8 @@ public class Controller implements Initializable {
     private Stage stage;
     private Stage regStage;
     private RegController regController;
+    private Stage changeNickStage;
+    private ChangeNicknameController changeNicknameController;
 
     public void setAuthenticated(boolean authenticated) {
         this.authenticated = authenticated;
@@ -132,6 +134,11 @@ public class Controller implements Initializable {
                                 setAuthenticated(false);
                                 break;
                             }
+
+                            if (str.startsWith(ServiceMessages.CHNICK)) {
+                                changeNicknameController.changeStatus(str);
+                            }
+
                             if (str.startsWith(ServiceMessages.CLIENT_LIST)) {
                                 String[] token = str.split(" ");
                                 Platform.runLater(() -> {
@@ -240,6 +247,44 @@ public class Controller implements Initializable {
             connect();
         }
         String msg = String.format("/reg %s %s %s", login, password, nickname);
+        try {
+            out.writeUTF(msg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clickBtnChangenickname(ActionEvent actionEvent) {
+        if (changeNickStage == null) {
+            createChangeNickWindow();
+        }
+        changeNickStage.show();
+    }
+
+    private void createChangeNickWindow() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/changeNickname.fxml"));
+            Parent root = fxmlLoader.load();
+            changeNickStage = new Stage();
+            changeNickStage.setTitle("Magic chat - change nickname");
+            changeNickStage.setScene(new Scene(root, 500, 425));
+
+            changeNickStage.initModality(Modality.APPLICATION_MODAL);
+            changeNickStage.initStyle(StageStyle.UTILITY);
+
+            changeNicknameController = fxmlLoader.getController();
+            changeNicknameController.setController(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void tryToChangeNickname(String newNickname, String oldNickname, String password) {
+        if (socket == null || socket.isClosed()) {
+            connect();
+        }
+        String msg = String.format("%s %s %s %s", ServiceMessages.CHNICK, newNickname, oldNickname, password);
         try {
             out.writeUTF(msg);
         } catch (IOException e) {

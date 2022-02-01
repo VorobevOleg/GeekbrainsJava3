@@ -72,6 +72,7 @@ public class ClientHandler {
                                 sendMsg(ServiceMessages.REG_NO);
                             }
                         }
+
                     }
                     //цикл работы
                     while (authenticated) {
@@ -82,6 +83,20 @@ public class ClientHandler {
                                 sendMsg(ServiceMessages.END);
                                 break;
                             }
+
+                            if (str.startsWith(ServiceMessages.CHNICK)) {
+                                String[] token = str.split(" ", 4);
+                                if (token.length < 4) {
+                                    continue;
+                                }
+                                if (server.getAuthService()
+                                        .changeNickname(token[2], token[1], token[3])) {
+                                    sendMsg(ServiceMessages.CHNICK_OK);
+                                } else {
+                                    sendMsg(ServiceMessages.CHNICK_NO);
+                                }
+                            }
+
                             if (str.startsWith(ServiceMessages.W)) {
                                 String[] token = str.split(" ", 3);
                                 if (token.length < 3) {
@@ -90,9 +105,11 @@ public class ClientHandler {
                                 server.privateMsg(this, token[1], token[2]);
                             }
 
+
                         } else {
                             server.broadcastMsg(this, str);
                         }
+
                     }
 
                 } catch (SocketTimeoutException e) {

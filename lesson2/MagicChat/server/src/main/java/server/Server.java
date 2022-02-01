@@ -16,7 +16,7 @@ public class Server {
     private final int PORT = 8189;
 
     private List<ClientHandler> clients;
-    private AuthService authService;
+    private DbAuthService authService;
 
     public Server() {
         clients = new CopyOnWriteArrayList<>();

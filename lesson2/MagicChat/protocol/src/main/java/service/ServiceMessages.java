@@ -9,5 +9,8 @@ public class ServiceMessages {
     public static final String END = "/end";
     public static final String W = "/w";
     public static final String CLIENT_LIST = "/clientlist";
+    public static final String CHNICK = "/change_nick";
+    public static final String CHNICK_OK = "/change_nick_ok";
+    public static final String CHNICK_NO = "/change_nick_no";
 
 }

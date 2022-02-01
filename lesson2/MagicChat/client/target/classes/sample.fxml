@@ -12,7 +12,7 @@
         <URL value="@/css/style.css"/>
     </stylesheets>
 
-    <HBox fx:id="authPanel" >
+    <HBox fx:id="authPanel" spacing="5" >
         <TextField fx:id="loginField" HBox.hgrow="ALWAYS" promptText="login" />
         <PasswordField fx:id="passwordField" HBox.hgrow="ALWAYS" promptText="password"/>
         <Button text="Auth" onAction="#clickBtnAuth"/>
@@ -26,9 +26,10 @@
     </HBox>
 
 
-    <HBox fx:id="msgPanel" visible="false" managed="false">
+    <HBox fx:id="msgPanel" visible="false" managed="false" spacing="5">
         <TextField fx:id="textField" HBox.hgrow="ALWAYS" promptText="input text"  onAction="#clickBtnSendText"/>
         <Button text="Send text"  onAction="#clickBtnSendText"/>
+        <Button text="Change nickname"  onAction="#clickBtnChangenickname"/>
     </HBox>
 
 </VBox>
