@@ -2,7 +2,6 @@ package client;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,14 +16,12 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 import service.ServiceMessages;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -52,11 +49,13 @@ public class Controller implements Initializable {
 
     private boolean authenticated;
     private String nickname;
+    private String login;
     private Stage stage;
     private Stage regStage;
     private RegController regController;
     private Stage changeNickStage;
     private ChangeNicknameController changeNicknameController;
+    private ArrayList<String> listHistory;
 
     public void setAuthenticated(boolean authenticated) {
         this.authenticated = authenticated;
@@ -112,7 +111,16 @@ public class Controller implements Initializable {
                             }
                             if (str.startsWith(ServiceMessages.AUTH_OK)) {
                                 nickname = str.split(" ")[1];
+                                login = str.split(" ")[2];
                                 setAuthenticated(true);
+
+                                if (new File("client/history_" + login + ".txt").exists()) {
+                                    listHistory = History.readLastHundredEntries("client/history_" + login + ".txt");
+                                    for (String s: listHistory) {
+                                        textArea.appendText(s + "\n");
+                                    }
+                                }
+
                                 break;
                             }
                             if (str.startsWith(ServiceMessages.REG)) {
@@ -127,6 +135,7 @@ public class Controller implements Initializable {
 
                     //цикл работы
                     while (authenticated) {
+
                         String str = in.readUTF();
 
                         if (str.startsWith("/")) {
@@ -151,6 +160,7 @@ public class Controller implements Initializable {
 
                         } else {
                             textArea.appendText(str + "\n");
+                            History.writeHistory("client/history_" + login + ".txt", str);
                         }
                     }
                 } catch (IOException e) {
