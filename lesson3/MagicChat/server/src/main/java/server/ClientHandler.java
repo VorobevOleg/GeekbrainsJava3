@@ -49,7 +49,7 @@ public class ClientHandler {
                                 if (!server.isLoginAuthenticated(login)) {
                                     authenticated = true;
                                     nickname = newNick;
-                                    sendMsg(ServiceMessages.AUTH_OK + " " + nickname);
+                                    sendMsg(ServiceMessages.AUTH_OK + " " + nickname + " " + login);
                                     server.subscribe(this);
                                     System.out.println("Client: " + nickname + " authenticated");
                                     break;
