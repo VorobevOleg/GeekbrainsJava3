@@ -5,6 +5,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Server {
     private ServerSocket server;
@@ -13,6 +15,12 @@ public class Server {
 
     private List<ClientHandler> clients;
     private DbAuthService authService;
+
+    private ExecutorService thredService = Executors.newCachedThreadPool();
+
+    public ExecutorService getThredService() {
+        return thredService;
+    }
 
     public Server() {
         clients = new CopyOnWriteArrayList<>();
@@ -32,6 +40,7 @@ public class Server {
         } finally {
             System.out.println("Server stop");
             try {
+                thredService.shutdown();
                 server.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -47,7 +56,6 @@ public class Server {
     public void unsubscribe(ClientHandler clientHandler) {
         clients.remove(clientHandler);
         broadcastClientList();
-        clientHandler.thredService.shutdown();
     }
 
     public void broadcastMsg(ClientHandler sender, String msg) {

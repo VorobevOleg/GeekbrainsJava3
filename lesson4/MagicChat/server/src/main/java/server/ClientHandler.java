@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.sql.SQLException;
-import java.util.concurrent.*;
 
 public class ClientHandler {
     private Server server;
@@ -18,8 +17,6 @@ public class ClientHandler {
     private String nickname;
     private String login;
 
-    ExecutorService thredService = Executors.newSingleThreadExecutor();
-
     public ClientHandler(Server server, Socket socket) {
         this.server = server;
         this.socket = socket;
@@ -28,7 +25,7 @@ public class ClientHandler {
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
 
-            thredService.execute(() -> {
+            server.getThredService().execute(() -> {
                 try {
                     socket.setSoTimeout(120000);
                     //цикл аутентификации
