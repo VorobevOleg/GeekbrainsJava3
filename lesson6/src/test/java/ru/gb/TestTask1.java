@@ -26,9 +26,9 @@ public class TestTask1 {
     }
 
     @Test
-    @Disabled("Не понятно")
+//    @Disabled("Не понятно")
     public void test4(){
-        Assertions.assertEquals(new RuntimeException("В массиве нет ни одной 4"),task1.task1(new int[]{1, 2, 5, 6}));
+        Assertions.assertThrows(RuntimeException.class,()->task1.task1(new int[]{1, 2, 5, 6}));
     }
 
 }
