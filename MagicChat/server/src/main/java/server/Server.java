@@ -7,8 +7,13 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Server {
+
+    private static final Logger logger = Logger.getLogger(Server.class.getName());
+
     private ServerSocket server;
     private Socket socket;
     private final int PORT = 8189;
@@ -29,21 +34,26 @@ public class Server {
         try {
             server = new ServerSocket(PORT);
             System.out.println("Server started!");
+            logger.log(Level.SEVERE, "Server started!");
 
             while (true) {
                 socket = server.accept();
                 System.out.println("Client connected: " + socket.getRemoteSocketAddress());
+                logger.log(Level.INFO, "Client connected: " + socket.getRemoteSocketAddress());
                 new ClientHandler(this, socket);
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             System.out.println("Server stop");
+            logger.log(Level.SEVERE, "Server stop");
+
             try {
                 thredService.shutdown();
                 server.close();
             } catch (IOException e) {
                 e.printStackTrace();
+                logger.log(Level.WARNING, "Error: Server stoped");
             }
         }
     }

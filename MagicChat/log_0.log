@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-02-16T12:44:23.986Z</date>
+  <millis>1645015463986</millis>
+  <sequence>0</sequence>
+  <logger>server.Server</logger>
+  <level>INFO</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Server started!</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-02-16T12:50:03.351Z</date>
+  <millis>1645015803351</millis>
+  <sequence>0</sequence>
+  <logger>server.Server</logger>
+  <level>INFO</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Server started!</message>
+</record>
+<record>
+  <date>2022-02-16T12:50:23.317Z</date>
+  <millis>1645015823317</millis>
+  <sequence>1</sequence>
+  <logger>server.Server</logger>
+  <level>INFO</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Client connected: /127.0.0.1:49908</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-02-16T12:53:58.526Z</date>
+  <millis>1645016038526</millis>
+  <sequence>0</sequence>
+  <logger>server.Server</logger>
+  <level>SEVERE</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Server started!</message>
+</record>
+<record>
+  <date>2022-02-16T12:54:07.496Z</date>
+  <millis>1645016047496</millis>
+  <sequence>1</sequence>
+  <logger>server.Server</logger>
+  <level>INFO</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Client connected: /127.0.0.1:50130</message>
+</record>
+<record>
+  <date>2022-02-16T12:54:07.542Z</date>
+  <millis>1645016047542</millis>
+  <sequence>2</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>lambda$new$0</method>
+  <thread>13</thread>
+  <message>Client: qwe authenticated</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-02-16T12:55:05.218Z</date>
+  <millis>1645016105218</millis>
+  <sequence>0</sequence>
+  <logger>server.Server</logger>
+  <level>SEVERE</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Server started!</message>
+</record>
+<record>
+  <date>2022-02-16T12:55:14.769Z</date>
+  <millis>1645016114769</millis>
+  <sequence>1</sequence>
+  <logger>server.Server</logger>
+  <level>INFO</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Client connected: /127.0.0.1:50240</message>
+</record>
+<record>
+  <date>2022-02-16T12:55:14.797Z</date>
+  <millis>1645016114797</millis>
+  <sequence>2</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>lambda$new$0</method>
+  <thread>13</thread>
+  <message>Client: qwe authenticated</message>
+</record>
+<record>
+  <date>2022-02-16T12:55:23.074Z</date>
+  <millis>1645016123074</millis>
+  <sequence>3</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>lambda$new$0</method>
+  <thread>13</thread>
+  <message>Client: qwe disconnected!</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-02-16T12:58:37.717Z</date>
+  <millis>1645016317717</millis>
+  <sequence>0</sequence>
+  <logger>server.Server</logger>
+  <level>SEVERE</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Server started!</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-02-16T12:59:31.154Z</date>
+  <millis>1645016371154</millis>
+  <sequence>0</sequence>
+  <logger>server.Server</logger>
+  <level>SEVERE</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Server started!</message>
+</record>
+<record>
+  <date>2022-02-16T12:59:45.569Z</date>
+  <millis>1645016385569</millis>
+  <sequence>1</sequence>
+  <logger>server.Server</logger>
+  <level>INFO</level>
+  <class>server.Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Client connected: /127.0.0.1:50592</message>
+</record>
+<record>
+  <date>2022-02-16T12:59:45.602Z</date>
+  <millis>1645016385602</millis>
+  <sequence>2</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>sendMsg</method>
+  <thread>13</thread>
+  <message>Client: qwe send comand</message>
+</record>
+<record>
+  <date>2022-02-16T12:59:45.608Z</date>
+  <millis>1645016385608</millis>
+  <sequence>3</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>sendMsg</method>
+  <thread>13</thread>
+  <message>Client: qwe send comand</message>
+</record>
+<record>
+  <date>2022-02-16T12:59:45.612Z</date>
+  <millis>1645016385612</millis>
+  <sequence>4</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>lambda$new$0</method>
+  <thread>13</thread>
+  <message>Client: qwe authenticated</message>
+</record>
+<record>
+  <date>2022-02-16T12:59:48.497Z</date>
+  <millis>1645016388497</millis>
+  <sequence>5</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>sendMsg</method>
+  <thread>13</thread>
+  <message>Client: qwe send comand</message>
+</record>
+<record>
+  <date>2022-02-16T12:59:48.500Z</date>
+  <millis>1645016388500</millis>
+  <sequence>6</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>lambda$new$0</method>
+  <thread>13</thread>
+  <message>Client: qwe send standart message</message>
+</record>
+<record>
+  <date>2022-02-16T13:00:12.478Z</date>
+  <millis>1645016412478</millis>
+  <sequence>7</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>sendMsg</method>
+  <thread>13</thread>
+  <message>Client: qwe send comand</message>
+</record>
+<record>
+  <date>2022-02-16T13:00:12.485Z</date>
+  <millis>1645016412485</millis>
+  <sequence>8</sequence>
+  <logger>server.ClientHandler</logger>
+  <level>INFO</level>
+  <class>server.ClientHandler</class>
+  <method>lambda$new$0</method>
+  <thread>13</thread>
+  <message>Client: qwe disconnected!</message>
+</record>

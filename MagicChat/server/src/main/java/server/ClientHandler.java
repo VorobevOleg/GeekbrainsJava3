@@ -7,8 +7,13 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ClientHandler {
+
+    private static final Logger logger = Logger.getLogger(ClientHandler.class.getName());
+
     private Server server;
     private Socket socket;
     private DataInputStream in;
@@ -51,6 +56,7 @@ public class ClientHandler {
                                     sendMsg(ServiceMessages.AUTH_OK + " " + nickname + " " + login);
                                     server.subscribe(this);
                                     System.out.println("Client: " + nickname + " authenticated");
+                                    logger.log(Level.INFO, "Client: " + nickname + " authenticated");
                                     break;
                                 } else {
                                     sendMsg("С этим логином уже зашли в чат");
@@ -102,11 +108,13 @@ public class ClientHandler {
                                     continue;
                                 }
                                 server.privateMsg(this, token[1], token[2]);
+                                logger.log(Level.INFO, "Client: " + nickname + " send private message");
                             }
 
 
                         } else {
                             server.broadcastMsg(this, str);
+                            logger.log(Level.INFO, "Client: " + nickname + " send standart message");
                         }
 
                     }
@@ -120,6 +128,7 @@ public class ClientHandler {
                     throwables.printStackTrace();
                 } finally {
                     System.out.println("Client disconnect!");
+                    logger.log(Level.INFO, "Client: " + nickname + " disconnected!");
                     server.unsubscribe(this);
                     try {
                         socket.close();
@@ -138,6 +147,7 @@ public class ClientHandler {
     public void sendMsg(String msg) {
         try {
             out.writeUTF(msg);
+            logger.log(Level.INFO, "Client: " + nickname + " send comand");
         } catch (IOException e) {
             e.printStackTrace();
         }
